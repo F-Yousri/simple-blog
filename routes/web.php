@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::prefix('posts')->group(function () {
     Route::get('/', ListPosts::class)->name('list-posts');
-    Route::get('/{id}', ViewPost::class);
+    Route::get('/{post}', ViewPost::class);
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
