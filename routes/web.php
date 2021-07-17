@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Livewire\ShowBlogs;
+use App\Http\Livewire\ViewPost;
+use App\Http\Livewire\ListPosts;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,5 +20,14 @@ Route::get('/', function () {
 });
 
 Route::prefix('blogs')->group(function () {
-    Route::get('/', ShowBlogs::class);
+    Route::get('/', ListPosts::class)->name('list-posts');
+    Route::get('/{id}', ViewPost::class);
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::prefix('blogs')->group(function () {
+    });
+});
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
