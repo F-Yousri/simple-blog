@@ -1,4 +1,4 @@
-<div class="flow-root">
+<div>
     <ul class="-mb-8">
         @foreach ($posts as $post)
         <li class="bg-white p-4">
@@ -27,4 +27,5 @@
         </li>
         @endforeach
     </ul>
+    {{ $posts->links() }}
 </div>
