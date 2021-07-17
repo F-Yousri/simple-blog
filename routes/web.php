@@ -19,13 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('blogs')->group(function () {
+Route::prefix('posts')->group(function () {
     Route::get('/', ListPosts::class)->name('list-posts');
     Route::get('/{id}', ViewPost::class);
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::prefix('blogs')->group(function () {
+    Route::prefix('posts')->group(function () {
     });
 });
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
