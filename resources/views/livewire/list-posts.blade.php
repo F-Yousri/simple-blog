@@ -1,7 +1,7 @@
 <div>
-    <ul class="-mb-8">
+    <ul>
         @foreach ($posts as $post)
-        <li class="bg-white p-4">
+        <li class="bg-white p-4 mb-8">
             <div class="relative pb-8">
                 <div class="relative flex items-start space-x-3">
                     <div class="relative">
@@ -27,5 +27,7 @@
         </li>
         @endforeach
     </ul>
-    {{ $posts->links() }}
+    <div class="bg-white p-4">
+        {{ $posts->links() }}
+    </div>
 </div>
