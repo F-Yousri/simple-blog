@@ -16,6 +16,6 @@ class ViewPost extends Component
 
     public function render()
     {
-        return view('livewire.view-post')->layout('layouts.guest');
+        return view('livewire.view-post');
     }
 }

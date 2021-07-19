@@ -14,6 +14,6 @@ class ListPosts extends Component
     {
         return view('livewire.list-posts', [
             'posts' => Post::with(['user'])->orderByDesc('created_at')->paginate(10),
-        ])->layout('layouts.guest');
+        ]);
     }
 }
