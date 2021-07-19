@@ -1,3 +1,8 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+/* To avoid flickering in datatables */
+[x-cloak] {
+    display: none;
+}

@@ -2,6 +2,8 @@
 
 use App\Http\Livewire\ViewPost;
 use App\Http\Livewire\ListPosts;
+use App\Http\Livewire\PostDatatable;
+use App\Http\Livewire\UserDatatable;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::redirect('/', '/posts');
 
 Route::prefix('posts')->group(function () {
@@ -26,6 +27,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::prefix('posts')->group(function () {
     });
 });
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/manage-users-datatable',UserDatatable::class)->name('manage-users-datatable');
+Route::middleware(['auth:sanctum', 'verified'])->get('/manage-posts-datatable',PostDatatable::class)->name('manage-posts-datatable');

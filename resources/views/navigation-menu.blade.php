@@ -12,6 +12,14 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    @if(auth()->user())
+                        <x-jet-nav-link href="{{ route('manage-users-datatable') }}" :active="request()->routeIs('manage-users-datatable')">
+                            {{ __('Manage Users') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('manage-posts-datatable') }}" :active="request()->routeIs('manage-posts-datatable')">
+                            {{ __('Manage Posts') }}
+                        </x-jet-nav-link>
+                    @endif
                     <x-jet-nav-link href="{{ route('list-posts') }}" :active="request()->routeIs('list-posts')">
                         {{ __('List Posts') }}
                     </x-jet-nav-link>
@@ -111,6 +119,11 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
+            @if(auth()->user())
+                <x-jet-responsive-nav-link href="{{ route('manage-users-datatable') }}" :active="request()->routeIs('manage-users-datatable')">
+                    {{ __('Manage Users') }}
+                </x-jet-responsive-nav-link>
+            @endif
             <x-jet-responsive-nav-link href="{{ route('list-posts') }}" :active="request()->routeIs('list-posts')">
                 {{ __('List Posts') }}
             </x-jet-responsive-nav-link>
