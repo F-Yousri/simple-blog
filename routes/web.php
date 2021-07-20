@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Livewire\EditUser;
 use App\Http\Livewire\ViewPost;
 use App\Http\Livewire\ListPosts;
+use App\Http\Livewire\ListUsers;
 use App\Http\Livewire\PostDatatable;
 use App\Http\Livewire\UserDatatable;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +28,8 @@ Route::prefix('posts')->group(function () {
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::prefix('posts')->group(function () {
     });
+    Route::get('/manage-users-datatable',UserDatatable::class)->name('manage-users-datatable');
+    Route::get('/manage-posts-datatable',PostDatatable::class)->name('manage-posts-datatable');
+    Route::get('list-users', ListUsers::class)->name('users.index');
+    Route::get('users/edit/{user}', EditUser::class)->name('users.edit');
 });
-Route::middleware(['auth:sanctum', 'verified'])->get('/manage-users-datatable',UserDatatable::class)->name('manage-users-datatable');
-Route::middleware(['auth:sanctum', 'verified'])->get('/manage-posts-datatable',PostDatatable::class)->name('manage-posts-datatable');
