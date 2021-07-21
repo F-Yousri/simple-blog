@@ -1,6 +1,6 @@
 <div class="flex flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <a href="#" class="flex items-end justify-end w-full px-8 py-3">
+        <a href="{{route('users.create')}}" class="flex items-end justify-end w-full px-8 py-3">
             <button type="button" class="inline-flex items-center p-3 text-white bg-indigo-600 border border-transparent rounded-full shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Create User &nbsp;
                 <!-- Heroicon name: outline/plus -->

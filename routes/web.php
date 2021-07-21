@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\CreateUser;
 use App\Http\Livewire\EditUser;
 use App\Http\Livewire\ViewPost;
 use App\Http\Livewire\ListPosts;
@@ -30,6 +31,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     });
     Route::get('/manage-users-datatable',UserDatatable::class)->name('manage-users-datatable');
     Route::get('/manage-posts-datatable',PostDatatable::class)->name('manage-posts-datatable');
-    Route::get('list-users', ListUsers::class)->name('users.index');
+    Route::get('users', ListUsers::class)->name('users.index');
+    Route::get('users/create', CreateUser::class)->name('users.create');
     Route::get('users/edit/{user}', EditUser::class)->name('users.edit');
 });
