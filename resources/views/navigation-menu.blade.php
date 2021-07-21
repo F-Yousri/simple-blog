@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center flex-shrink-0">
-                    <a href="{{ route('list-posts') }}">
+                    <a href="{{ route('posts.index') }}">
                         <x-jet-application-mark class="block w-auto h-9" />
                     </a>
                 </div>
@@ -20,7 +20,7 @@
                             {{ __('Manage Posts') }}
                         </x-jet-nav-link>
                     @endif
-                    <x-jet-nav-link href="{{ route('list-posts') }}" :active="request()->routeIs('list-posts')">
+                    <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                         {{ __('List Posts') }}
                     </x-jet-nav-link>
                 </div>
@@ -124,7 +124,7 @@
                     {{ __('Manage Users') }}
                 </x-jet-responsive-nav-link>
             @endif
-            <x-jet-responsive-nav-link href="{{ route('list-posts') }}" :active="request()->routeIs('list-posts')">
+            <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                 {{ __('List Posts') }}
             </x-jet-responsive-nav-link>
         </div>

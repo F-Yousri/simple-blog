@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', '/posts');
 
 Route::prefix('posts')->group(function () {
-    Route::get('/', ListPosts::class)->name('list-posts');
+    Route::get('/', ListPosts::class)->name('posts.index');
     Route::get('/{post}', ViewPost::class);
 });
 
