@@ -52,7 +52,14 @@ class ListPosts extends Component
     {
         $this->edittingPostId = null;
     }
-    
+
+    public function delete($id)
+    {
+        Post::whereId($id)->delete();
+        request()->session()->flash('flash.banner', 'Post deleted successfuly!');
+        request()->session()->flash('flash.bannerStyle', 'success');
+        return redirect()->route('posts.index');
+    }
     public function render()
     {
         return view('livewire.posts.index', [

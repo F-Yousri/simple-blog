@@ -14,10 +14,13 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @if(auth()->user())
                         <x-jet-nav-link href="{{ route('manage-users-datatable') }}" :active="request()->routeIs('manage-users-datatable')">
+                            {{ __('Manage Users Datatables') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
                             {{ __('Manage Users') }}
                         </x-jet-nav-link>
                         <x-jet-nav-link href="{{ route('manage-posts-datatable') }}" :active="request()->routeIs('manage-posts-datatable')">
-                            {{ __('Manage Posts') }}
+                            {{ __('Manage Posts Datatables') }}
                         </x-jet-nav-link>
                     @endif
                     <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
