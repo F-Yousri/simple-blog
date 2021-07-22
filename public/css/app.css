@@ -1517,11 +1517,6 @@ select {
 	margin-right: calc(1rem * var(--tw-space-x-reverse));
 	margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
-.space-y-8 > :not([hidden]) ~ :not([hidden]) {
-	--tw-space-y-reverse: 0;
-	margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
-	margin-bottom: calc(2rem * var(--tw-space-y-reverse));
-}
 .space-y-5 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-y-reverse: 0;
 	margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1729,6 +1724,10 @@ select {
 .bg-gray-600 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
+}
+.bg-gray-700 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
@@ -2338,6 +2337,10 @@ select {
 .focus\:ring-red-500:focus {
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(239, 68, 68, var(--tw-ring-opacity));
+}
+.focus\:ring-gray-500:focus {
+	--tw-ring-opacity: 1;
+	--tw-ring-color: rgba(107, 114, 128, var(--tw-ring-opacity));
 }
 .focus\:ring-opacity-50:focus {
 	--tw-ring-opacity: 0.5;

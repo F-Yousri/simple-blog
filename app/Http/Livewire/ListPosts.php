@@ -11,6 +11,8 @@ class ListPosts extends Component
     use WithPagination;
 
     public $newPost;
+    public $edittingPostId;
+    public $edittingPost;
 
     public function createPost()
     {
@@ -19,13 +21,38 @@ class ListPosts extends Component
             [
                 'body' => $this->newPost,
                 'user_id' => auth()->user()->id,
-            ]);
+            ]
+        );
+        $this->newPost = null;
         request()->session()->flash('flash.banner', 'Post created successfuly!');
         request()->session()->flash('flash.bannerStyle', 'success');
 
         return redirect()->route('posts.index');
     }
 
+    public function editPost($id)
+    {
+        $this->edittingPost = Post::find($id)->body;
+        $this->edittingPostId = $id;
+        $this->resetValidation();
+    }
+
+    public function updatePost()
+    {
+        $this->validate(['edittingPost' => 'required']);
+
+        Post::whereId($this->edittingPostId)->update(['body' => $this->edittingPost]);
+        $this->edittingPostId = null;
+        request()->session()->flash('flash.banner', 'Post updated successfuly!');
+        request()->session()->flash('flash.bannerStyle', 'success');
+        return redirect()->route('posts.index');
+    }
+
+    public function cancelEdit()
+    {
+        $this->edittingPostId = null;
+    }
+    
     public function render()
     {
         return view('livewire.posts.index', [
